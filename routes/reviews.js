@@ -11,9 +11,7 @@ const {
 router.post('/', asyncErrorHandler(reviewCreate));
 
 /* PUT reviews index /reviews/:review_id */
-router.put('/:review_id', (req, res, next) => {
-    res.send('PUT /posts/:id/reviews/:review_id');
-});
+router.put('/:review_id', asyncErrorHandler(reviewUpdate));
 
 /* DELETE reviews destroy /reviews/:review_id */
 router.delete('/:review_id', (req, res, next) => {

@@ -67,6 +67,11 @@ passport.deserializeUser(User.deserializeUser())
 
 // set local variables middleware
 app.use((req, res, next) => {
+  req.user = {
+    "_id" : "5d8b522488322f39ac8286eb",
+    "username" : "trey"
+  }
+  res.locals.currentUser = req.user;
   //set default page title
   res.locals.title = 'Surf Shop';
   //set success flash message
