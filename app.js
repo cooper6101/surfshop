@@ -14,7 +14,7 @@ const session = require('express-session');
 const passport = require('passport');
 const User = require('./models/user');
 // const seedPosts = require('./seeds');
-// Seed DB
+// // Seed DB
 // seedPosts();
 
 mongoose.Promise = global.Promise;
@@ -71,8 +71,8 @@ passport.deserializeUser(User.deserializeUser())
 // set local variables middleware
 app.use((req, res, next) => {
   req.user = {
-    "_id" : "5d8b522488322f39ac8286eb",
-    "username" : "trey"
+    "_id" : "5d8ebcc932d4f25548bde141",
+    "username" : "trey3"
   }
   res.locals.currentUser = req.user;
   //set default page title
