@@ -13,6 +13,9 @@ const bodyParser= require('body-parser');
 const session = require('express-session');
 const passport = require('passport');
 const User = require('./models/user');
+// const seedPosts = require('./seeds');
+// Seed DB
+// seedPosts();
 
 mongoose.Promise = global.Promise;
 
