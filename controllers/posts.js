@@ -37,6 +37,7 @@ module.exports = {
         .send();
         //use req.body to create a new post
         req.body.post.geometry = response.body.features[0].geometry;
+        req.body.post.author = req.user._id;
         let post = new Post(req.body.post);
 		post.properties.description = `<strong><a href="/posts/${post._id}">${post.title}</a></strong><p>${post.location}</p><p>${post.description.substring(0, 20)}...</p>`;
 		await post.save();
@@ -60,15 +61,14 @@ module.exports = {
     },
 
     //GET posts edit /posts/:id/edit
-    async postEdit(req, res, next) {
-        let post = await Post.findById(req.params.id);
-        res.render('posts/edit', { post });
+    postEdit(req, res, next) {
+        res.render('posts/edit');
     },
 
     // PUT posts update /posts/:id
     async postUpdate(req, res, next) {
-    //   find the post by id
-    let post = await Post.findById(req.params.id);
+    //   destructure post from res.locals
+    const { post } = res.locals;
     //   check if there's any images for deletion
     if (req.body.deleteImages && req.body.deleteImages.length) {
         // assign deletImages from req.body to its own variable
@@ -114,14 +114,14 @@ module.exports = {
     post.price = req.body.post.price;
     post.properties.description = `<strong><a href="/posts/${post._id}">${post.title}</a></strong><p>${post.location}</p><p>${post.description.substring(0, 20)}...</p>`;
     // save the update post into the db
-    post.save();
+    await post.save();
     // redirect to show page
         res.redirect(`/posts/${post.id}`);
     },
 
     // DELETE posts destroy /posts/:id
     async postDestroy(req, res, next) {
-        let post = await Post.findById(req.params.id);
+        const { post } = res.locals;
         for(const image of post.images) {
             await cloudinary.v2.uploader.destroy(image.public_id);
         }
