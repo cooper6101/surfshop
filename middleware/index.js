@@ -1,8 +1,9 @@
 const Review = require('../models/review');
 const User = require('../models/user');
 const Post = require('../models/post');
+const { cloudinary } = require('../cloudinary');
 
-module.exports = {
+const middleware = {
     asyncErrorHandler: (fn) =>
         (req, res, next) => {
             Promise.resolve(fn(req, res, next))
@@ -42,6 +43,7 @@ module.exports = {
         res.locals.user = user;
         next();
       } else {
+        middleware.deleteProfileImage(req);
         req.session.error = 'Current password is not correct!';
         return res.redirect('/profile');
       }
@@ -52,6 +54,7 @@ module.exports = {
               passwordConfirmation
              } = req.body;
       if (newPassword && !passwordConfirmation) {
+        middleware.deleteProfileImage(req);
         req.session.error = 'Missing password confirmation!';
         return res.redirect('/profile');
       }       
@@ -61,11 +64,18 @@ module.exports = {
           await user.setPassword(newPassword);
           next();
         } else {
+          middleware.deleteProfileImage(req);
           req.session.error = 'New Passwords must match!';
           return res.redirect('/profile');
         }
       } else {
         next();
       }
+    },
+
+    deleteProfileImage: async req => {
+      if (req.file) await cloudinary.v2.uploader.destroy(req.file.public_id);
     }
-}
+};
+
+module.exports = middleware;
