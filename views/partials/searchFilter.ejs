@@ -1,0 +1,50 @@
+<form action="/posts" method="GET">
+    <fieldset>
+        <legend>Search</legend>
+        <label for="search">Search</label>
+        <input type="text" id="search" placeholder="search" name="search" value="<%= query.search %>">
+    </fieldset>
+
+    <fieldset>
+        <div>
+            <label for="location">Location</label>
+            <input type="text" name="location" id="location" value="<%= query.location %>" placeholder="Address or Zipcode">
+            <small><a href="#">Use My Location</a></small>
+        </div>
+        <legend>Distance (miles)</legend>
+        <div>
+            <input type="radio" name="distance" id="distance25" value="25" <%= query.distance === '25' ? 'checked' : '' %>>
+            <label for="distance25">25</label>
+        </div>
+        <div>
+            <input type="radio" name="distance" id="distance50" value="50" <%= query.distance === '50' ? 'checked' : '' %>>
+            <label for="distance50">50</label>
+        </div>
+        <div>
+            <input type="radio" name="distance" id="distance100" value="100" <%= query.distance === '100' ? 'checked' : '' %>>
+            <label for="distance100">100</label>
+        </div>
+        <div>
+            <a href="#" id="clear-distance">clear</a>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Price</legend>
+        <label for="min">Min</label>
+        <input type="text" name="price[min]" id="min" min="0" max="10000" step="1" placeholder="Min" value="<%= query.price.min %>">
+
+        <label for="max">Max</label>
+        <input type="text" name="price[max]" id="max" min="0" max="10000" step="1" placeholder="Max" value="<%= query.price.max %>">
+    </fieldset>
+
+    <fieldset>
+        <legend>Rating</legend>
+    </fieldset>
+
+    <div>
+        <a href="/posts">clear all</a>
+    </div>
+
+    <input type="submit">
+</form>
