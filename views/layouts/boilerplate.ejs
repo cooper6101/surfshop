@@ -17,6 +17,8 @@
         <% include ../partials/navbar %>
         <% include ../partials/flash-messages %>
         <%- body -%>
+        <% if (title === 'Posts Index') { %>
         <script src="/javascripts/post-index.js"></script>
+        <% } %>
     </body>
 </html>
