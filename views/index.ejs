@@ -1,13 +1,9 @@
 <% layout('layouts/boilerplate') -%>
-<h1>Welcome to Surf Shop Home</h1>
-<p>Surf Shop</p>
-<div id="map">
-
+<div class="jumbotron">
+        <div class="container">
+          <h1 class="display-4">Welcome to Surf Shop</h1>
+          <p class="lead">Buy and Sell Surf Boards from Anywhere</p>
+          <a href="/posts"><button type="button" class="btn btn-light">See Available Boards</button></a>
+        </div>
 </div>
-
-<script>
-    mapboxgl.accessToken = "<%= mapboxToken %>";
-    var posts = { features: <%- JSON.stringify(posts) %> };
-</script>
-<script src='/javascripts/allPostsClusterMap.js'></script>
 

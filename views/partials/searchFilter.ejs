@@ -1,8 +1,14 @@
 <form action="/posts" method="GET">
     <fieldset>
-        <legend>Search</legend>
-        <label for="search">Search</label>
-        <input type="text" id="search" placeholder="search" name="search" value="<%= query.search %>">
+        <legend class="text-center">Search for Boards</legend>
+        <div class="active-cyan-4 mb-4 row">
+            <div class="col">
+                <label for="search"><i class="fas fa-search" aria-hidden="true"></i> </label>
+            </div>
+            <div class="col">
+                <input type="text" id="search" placeholder="search" name="search" value="<%= query.search %>">
+            </div>
+        </div>
     </fieldset>
 
     <fieldset>
@@ -63,3 +69,4 @@
 </form>
 
 <script src="/javascripts/use-my-location.js"></script>
+
