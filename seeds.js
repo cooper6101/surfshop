@@ -22,7 +22,7 @@ async function seedPosts() {
 			author: '5bb27cd1f986d278582aa58c',
 			images: [
 				{
-					url: "https://res.cloudinary.com/devsprout/image/upload/v1561315599/surf-shop/surfboard.jpg"
+					url: "https://images.unsplash.com/photo-1417144762996-a41c0f6be9c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1203&q=80"
 				}
 			]
 		}

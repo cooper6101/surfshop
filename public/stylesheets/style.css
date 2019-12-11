@@ -1,3 +1,34 @@
+label {
+  text-align: center;
+}
+
+legend {
+  text-align: center;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.logForm a:hover {
+  color: aliceblue;
+}
+
+.logForm a {
+  color: rgb(113, 236, 205);
+}
+
+.jumbotron {
+  background: none;
+  padding: 100px 0;
+}
+
+.searchForm {
+  font-size: 0.7rem;
+}
+
 .logo {
   color: #fff;
 }
@@ -6,11 +37,11 @@
   color: #fff;
 }
 
-.jumbotron{
+.landingPage {
   background-image: url("/images/banner-bg.jpg");
   color: aliceblue;
   height: 600px;
-  padding: 250px 0;
+  padding: 50px 30%;
   text-align: center;
 }
 
@@ -32,9 +63,25 @@
   border-radius: 50%;
 }
 
+.ninetyWide {
+  width: 90%;
+}
+
+.textOverflow {
+  display: block;
+  width: 100px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.card-img-top {
+  height: 150px;
+}
+
 #map {
   width: 90%;
-  height: 500px;
+  height: 600px;
 }
 
 #brandimg {
