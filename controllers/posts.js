@@ -61,9 +61,10 @@ module.exports = {
                 model: 'User'
             }
         });
+        let image = post.images;
         // const floorRating = post.calculateAvgRating();
         const floorRating = post.avgRating;
-        res.render('posts/show', { post, floorRating });
+        res.render('posts/show', { post, floorRating, image });
     },
 
     //GET posts edit /posts/:id/edit

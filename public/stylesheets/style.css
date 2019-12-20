@@ -16,6 +16,14 @@ body {
   margin-bottom: 10px;
 }
 
+.reviewSec div {
+  margin-bottom: 10px;
+}
+
+.carouselImg {
+  max-height: 350px;
+}
+
 .imgList {
   text-align: left;
 }
@@ -102,6 +110,11 @@ body {
 
 .card-img-top {
   height: 150px;
+}
+
+#reviewText {
+  width: 100%;
+  height: 100px;
 }
 
 #map {
