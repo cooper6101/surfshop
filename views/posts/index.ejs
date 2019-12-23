@@ -21,7 +21,11 @@
                 <% posts.docs.forEach(function(post) { %>
                     <div class="d-flex justify-content-center col-8 col-md-6 col-lg-4 col-xl-3 pb-3">
                         <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="https://images.unsplash.com/photo-1417144762996-a41c0f6be9c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1203&q=80" alt="<%= post.title %> image">
+                            <% if (post.images.url) { %>
+                                <img class="card-img-top" src="<%= post.images.url[0] %>" alt="<%= post.title %>">
+                            <% } else { %>
+                                <img class="card-img-top" src="https://images.unsplash.com/photo-1417144762996-a41c0f6be9c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1203&q=80" alt="<%= post.title %>">
+                            <% } %>
                             <div class="card-body">
                                     <h5 class="card-title"><%= post.title %></h5>
                                     <p class="card-text textOverflow"><%= post.description %>...</p>

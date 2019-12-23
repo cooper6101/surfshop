@@ -149,7 +149,7 @@
           <% if(currentUser && review.author.equals(currentUser._id)) { %>
           <button class="card-link toggle-edit-form mb-2 btn btn-info">Edit</button>
           <form action="/posts/<%= post.id %>/reviews/<%= review.id %>?_method=PUT" method="POST" class="edit-review-form">
-            <textarea name="review[body]" required><%= review.body %></textarea>
+            <textarea id="editText" name="review[body]" required><%= review.body %></textarea>
             <fieldset class="starability-basic">
                     <input type="radio" id="edit-rate0" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No review[rating]." />
                     <input type="radio" id="edit-rate1" name="review[rating]" value="1" />
